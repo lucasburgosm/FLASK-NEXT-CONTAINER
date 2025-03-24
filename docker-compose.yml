@@ -1,31 +1,13 @@
 version: '3.8'
 
 services:
-  flask:
-    build: ./flask-app
+  flask-app:
+    build: .
     volumes:
       - ./flask-app:/app
     ports:
       - "5000:5000"
     environment:
+      - FLASK_APP=app.py
       - FLASK_ENV=development
-    networks:
-      - app-network
-
-  nextjs:
-    build: ./nextjs-app
-    volumes:
-      - ./nextjs-app:/app
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://flask:5000  # Flask API URL
-    depends_on:
-      - flask
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
 
