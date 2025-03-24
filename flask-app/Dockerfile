@@ -1,22 +1,31 @@
-# Use an official Python runtime as a parent image (e.g., Debian-based Python image)
 FROM python:3.9-slim
 
-# Set the working directory inside the container
+# Create a user `vscode`
+RUN useradd -ms /bin/bash vscode
+
+# Set the working directory
 WORKDIR /app
 
-# Install any needed Python packages specified in requirements.txt
-COPY flask-app/requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r /app/requirements.txt
+# Copy the requirements and install dependencies
+COPY flask-app/requirements.txt .
+RUN pip install -r requirements.txt
 
-# Copy the entire project folder into the container's /app folder
-COPY . /app
+# Copy the rest of the applicationFROM python:3.9-slim
 
-# Set environment variables for Flask
-ENV FLASK_APP=app.py
-ENV FLASK_ENV=development
+# Set working directory
+WORKDIR /workspace
 
-# Expose port 5000 for Flask
+# Copy requirements first to leverage Docker cache
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY . .
+
+# Expose the port the app runs on
 EXPOSE 5000
 
-# Run the Flask app
+# Default command (can be overridden in docker-compose)
 CMD ["flask", "run", "--host=0.0.0.0"]

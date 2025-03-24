@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  flask-app:
+    build: 
+      context: ../flask-app
+      dockerfile: Dockerfile
+    volumes:
+      - ../flask-app:/workspace
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    command: flask run --host=0.0.0.0
