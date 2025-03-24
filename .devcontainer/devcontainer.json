@@ -1,21 +1,6 @@
 {
-  "name": "Flask Development Container",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "flask-app",
-  "workspaceFolder": "/workspace",
-  "customizations": {
-      "vscode": {
-          "extensions": [
-              "ms-python.python",
-              "ms-python.vscode-pylance",
-              "ms-azuretools.vscode-docker"
-          ],
-          "settings": {
-              "python.defaultInterpreterPath": "/usr/local/bin/python",
-              "python.linting.enabled": true,
-              "python.linting.pylintEnabled": true
-          }
-      }
-  },
-  "postCreateCommand": "pip install -r requirements.txt"
+    "name": "FLASK-NEXT-CONTAINER",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "debian",
+    "workspaceFolder": "/workspace"
 }
