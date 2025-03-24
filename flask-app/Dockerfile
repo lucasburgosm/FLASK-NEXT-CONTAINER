@@ -1,9 +1,8 @@
-FROM debian:bullseye-slim
+# [Choice] Debian version (use bullseye on local arm64/Apple Silicon): bullseye, buster
+ARG VARIANT=bullseye
+FROM mcr.microsoft.com/vscode/devcontainers/base:${VARIANT}
 
 WORKDIR /workspace
 
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-CMD ["sleep", "infinity"]
+    software-properties-common
