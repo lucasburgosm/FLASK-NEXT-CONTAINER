@@ -2,6 +2,7 @@
     "name": "FLASK-NEXT-CONTAINER",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "flask-app",
+    "workspaceFolder": "/FLASK-NEXT-CONTAINER",
     "remoteUser": "vscode"
   }
   

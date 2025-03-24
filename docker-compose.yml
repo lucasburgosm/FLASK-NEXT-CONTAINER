@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   flask-app:
-    build: .
+    build:
+      context: /home/lucasburgos/Public/Work/FLASK-NEXT-CONTAINER
+      dockerfile: flask-app/Dockerfile 
     volumes:
       - ./flask-app:/app
     ports:
