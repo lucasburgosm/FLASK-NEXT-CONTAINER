@@ -1,22 +1,18 @@
-# [Choice] Debian version (use bullseye on local arm64/Apple Silicon): bullseye, buster
+# Use the base image with the required Debian version
 ARG VARIANT=bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/base:${VARIANT}
 
+# Set working directory to /workspace
 WORKDIR /workspace
 
+# Install Python and pip
 RUN apt-get update && apt-get install -y \
-    software-properties-common \
     python3 \
     python3-pip \
-    python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean
 
-# Install additional Python dependencies
-COPY requirements.txt /workspace/
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Set default Python version to python3
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
-# Expose the port Flask will run on
-EXPOSE 5000
-
-# Run your application or start any other service you need
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+# Verify Python and pip installation
+RUN python --version && pip3 --version

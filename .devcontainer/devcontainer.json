@@ -3,4 +3,4 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "debian",
     "workspaceFolder": "/workspace"
-}
+  }
