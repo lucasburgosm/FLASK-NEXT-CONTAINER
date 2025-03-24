@@ -1,0 +1,35 @@
+# Version Control
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Virtual Environments
+.env
+
+# IDE Files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# Dependency directories
+node_modules/
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
