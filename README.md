@@ -1,19 +1,22 @@
 # FLASK-NEXT-CONTAINER
 base web app using flask ass backend and next js as front end.
 
-Firts Python and flask install
+Manual
 
+1 -Clone de project from github
 
-git pull the project
+2- control + shit + p re build and re open containter ( this will install npm, and python)
 
-control + shit + p re build and re open containter ( this will install npm, and python)
+Using Flask backned
 
-sudo apt-get install python3-venv  this will instal venv as a root user ( see if a can put it in the dockerfile)
+3- cd back
 
-cd back
+4sudo apt-get install python3-venv  ( this will instal venv as a root user  see if a can put it in the dockerfile)
 
-python3 -m venv venv  ( create venv, )
+4- python3 -m venv venv  ( create venv)
 
-source venv/bin/activate 
+5- source venv/bin/activate  ( load venv)
 
-control shift p python select interpreter
+6- install requirements to venv 
+
+7- control shift p python select interpreter
