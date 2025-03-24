@@ -15,3 +15,5 @@ cd back
 python3 -m venv venv  ( create venv, )
 
 source venv/bin/activate 
+
+control shift p python select interpreter
