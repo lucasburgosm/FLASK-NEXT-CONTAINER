@@ -1,9 +1,0 @@
-version: '3.8'
-services:
-  debian:
-    build:
-      context: ../flask-app  # Path to flask-app where Dockerfile is
-      dockerfile: Dockerfile  # Use the Dockerfile inside flask-app
-    volumes:
-      - ../flask-app:/workspace  # Mount flask-app to /workspace inside the container
-    command: sleep infinity  # Keeps the container running indefinitely for development
